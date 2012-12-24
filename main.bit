@@ -1,0 +1,29 @@
+/*
+    main.bit -- Main Bit File for the Bit O/S layer
+ */
+
+Bit.load({
+    blend: [
+        "${BITS}/embedthis.bit",
+    ],
+    settings: {
+		product: 'bitos',
+		title: 'Bit O/S Layer',
+        company: 'Embedthis',
+		version: '0.1.0',
+		buildNumber: '0',
+        sync: [],
+    },
+
+    targets: {
+        package: {
+            depends: ['build'],
+            action: "
+                let d = bit.dir.pkg.join('${settings.product}-${settings.version}')
+                safeRemove(bit.dir.pkg)
+                install('bitos.h', d.join('src/bitos.h'))
+                package(bit.dir.pkg, ['combo', 'flat'])
+            ",
+        },
+	},
+})

@@ -1,0 +1,9 @@
+/*
+    start.bit -- Startup Bit File for Bit O/S Layer
+ */
+
+Bit.load({
+    platforms: [
+        "macosx-x64",
+    ],
+})

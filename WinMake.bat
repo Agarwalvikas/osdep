@@ -1,1 +1,1 @@
-projects\windows x86 -f projects/bitos-windows-default.nmake all
+projects\windows -f projects/bitos-windows-default.nmake all

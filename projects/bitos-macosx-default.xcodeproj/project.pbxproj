@@ -137,7 +137,7 @@ fi";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
 
-                CFG_DIR = "../macosx-x64-default";
+                OUT_DIR = "../macosx-x64-default";
                 BIN_DIR = "../macosx-x64-default/bin";
                 LIB_DIR = "../macosx-x64-default/bin";
                 INC_DIR = "../macosx-x64-default/inc";
@@ -207,7 +207,7 @@ fi";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
 
-                CFG_DIR = "../macosx-x64-default";
+                OUT_DIR = "../macosx-x64-default";
                 BIN_DIR = "../macosx-x64-default/bin";
                 LIB_DIR = "../macosx-x64-default/bin";
                 INC_DIR = "../macosx-x64-default/inc";

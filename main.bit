@@ -21,7 +21,7 @@ Bit.load({
 	},
 
     manifest: {
-        packages:   {
+        packages: {
             combo: {
                 inherit:    'embedthis-manifest',
                 prefixes:   [ 'src'],
@@ -36,9 +36,9 @@ Bit.load({
             },
         },
         files: [ 
-            {   from:   [ 'bitos.h' ],
-                to:     '${src}/',
-                set:    'source',
+            {   from:       [ 'bitos.h' ],
+                to:         '${src}/src/',
+                set:        'source',
             },
         ],
     },

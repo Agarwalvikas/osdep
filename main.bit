@@ -10,21 +10,36 @@ Bit.load({
 		product: 'bitos',
 		title: 'Bit O/S Layer',
         company: 'Embedthis',
-		version: '0.1.0',
+		version: '0.8.1',
 		buildNumber: '0',
         prefixes: 'embedthis-prefixes',
         sync: [],
     },
 
     targets: {
-        package: {
-            depends: ['build'],
-            action: "
-                let d = bit.dir.pkg.join('${settings.product}-${settings.version}')
-                safeRemove(bit.dir.pkg)
-                install('bitos.h', d.join('src/bitos.h'))
-                package(bit.dir.pkg, ['combo', 'flat'])
-            ",
-        },
+        projects: { },
 	},
+
+    manifest: {
+        packages:   {
+            combo: {
+                inherit:    'embedthis-manifest',
+                prefixes:   [ 'src'],
+                formats:    [ 'tar' ],
+                sets:       [ 'source' ],
+            },
+            flat: {
+                inherit:    'embedthis-manifest',
+                prefixes:   [ 'src'],
+                formats:    [ 'tar' ],
+                sets:       [ 'source' ],
+            },
+        },
+        files: [ 
+            {   from:   [ 'bitos.h' ],
+                to:     '${src}/',
+                set:    'source',
+            },
+        ],
+    },
 })

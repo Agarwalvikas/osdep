@@ -68,7 +68,7 @@ help:
 	@echo '' >&2
 	@echo 'For example, to enable ROM support:' >&2
 	@echo '' >&2
-	@echo '      make BIT_ROM=0' >&2
+	@echo '      BIT_ROM=0 make' >&2
 	@echo '' >&2
 	@echo 'Other make variables include:' >&2
 	@echo '' >&2
@@ -77,4 +77,6 @@ help:
 	@echo 'Alternatively, for faster, easier and fully configurable building, install' >&2
 	@echo 'bit from http://embedthis.com/downloads/bit/download.ejs and re-run'>&2
 	@echo 'configure and then build with bit.' >&2
+	@echo '' >&2
+	@echo 'Use "SHOW=1 make" to show executed commands.' >&2
 	@echo '' >&2

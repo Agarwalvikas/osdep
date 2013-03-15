@@ -191,3 +191,6 @@
 #ifndef BIT_PACK_VXWORKS
     #define BIT_PACK_VXWORKS 1
 #endif
+#ifndef BIT_PACK_WINSDK
+    #define BIT_PACK_WINSDK 0
+#endif

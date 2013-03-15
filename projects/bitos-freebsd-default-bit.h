@@ -188,3 +188,9 @@
 #ifndef BIT_PACK_LINK
     #define BIT_PACK_LINK 1
 #endif
+#ifndef BIT_PACK_VXWORKS
+    #define BIT_PACK_VXWORKS 0
+#endif
+#ifndef BIT_PACK_WINSDK
+    #define BIT_PACK_WINSDK 0
+#endif

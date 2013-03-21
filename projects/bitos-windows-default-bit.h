@@ -131,7 +131,7 @@
 
 /* Profile */
 #ifndef BIT_CONFIG_CMD
-    #define BIT_CONFIG_CMD "bit -d -q -platform windows-x86-default -configure . --without default -gen vs"
+    #define BIT_CONFIG_CMD "bit -d -q -platform windows-x86-default -configure . --without default -gen nmake"
 #endif
 #ifndef BIT_BITOS_PRODUCT
     #define BIT_BITOS_PRODUCT 1

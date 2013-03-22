@@ -20,6 +20,13 @@ OS                = windows
 CONFIG            = $(OS)-$(ARCH)-$(PROFILE)
 LBIN              = $(CONFIG)\bin
 
+ifeq ($(BIT_PACK_LIB),1)
+    BIT_PACK_COMPILER := 1
+endif
+ifeq ($(BIT_PACK_RC),1)
+    BIT_PACK_WINSDK := 1
+endif
+
 CC                = cl
 LD                = link
 RC                = rc
@@ -85,6 +92,7 @@ version: $(DEPS_1)
 #   stop
 #
 stop: $(DEPS_2)
+#  Omit build script stop
 
 #
 #   installBinary
@@ -97,6 +105,7 @@ installBinary: $(DEPS_3)
 #   start
 #
 start: $(DEPS_4)
+#  Omit build script start
 
 #
 #   install

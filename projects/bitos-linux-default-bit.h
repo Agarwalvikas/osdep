@@ -152,7 +152,7 @@
 
 /* Profile */
 #ifndef BIT_CONFIG_CMD
-    #define BIT_CONFIG_CMD "bit -d -q -platform linux-x86-default -configure . --without default -gen make"
+    #define BIT_CONFIG_CMD "bit -d -q -platform linux-x86-default -configure . -gen make"
 #endif
 #ifndef BIT_BITOS_PRODUCT
     #define BIT_BITOS_PRODUCT 1
@@ -178,9 +178,6 @@
 /* Packs */
 #ifndef BIT_PACK_CC
     #define BIT_PACK_CC 1
-#endif
-#ifndef BIT_PACK_DEFAULT
-    #define BIT_PACK_DEFAULT 0
 #endif
 #ifndef BIT_PACK_LIB
     #define BIT_PACK_LIB 1

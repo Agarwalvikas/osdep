@@ -18,9 +18,9 @@ ifeq ($(BIT_PACK_LIB),1)
     BIT_PACK_COMPILER := 1
 endif
 
-BIT_PACK_COMPILER_PATH := clang
-BIT_PACK_LIB_PATH  := ar
-BIT_PACK_LINK_PATH := link
+BIT_PACK_COMPILER_PATH    := clang
+BIT_PACK_LIB_PATH         := ar
+BIT_PACK_LINK_PATH        := link
 
 CFLAGS             += -w
 DFLAGS             +=  $(patsubst %,-D%,$(filter BIT_%,$(MAKEFLAGS))) 

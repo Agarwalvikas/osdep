@@ -8,8 +8,8 @@ BUILD_NUMBER       := 0
 PROFILE            := default
 ARCH               := $(shell uname -m | sed 's/i.86/x86/;s/x86_64/x64/;s/arm.*/arm/;s/mips.*/mips/')
 OS                 := macosx
-CC                 := /usr/bin/clang
-LD                 := /usr/bin/ld
+CC                 := clang
+LD                 := link
 CONFIG             := $(OS)-$(ARCH)-$(PROFILE)
 LBIN               := $(CONFIG)/bin
 
@@ -17,6 +17,10 @@ LBIN               := $(CONFIG)/bin
 ifeq ($(BIT_PACK_LIB),1)
     BIT_PACK_COMPILER := 1
 endif
+
+BIT_PACK_COMPILER_PATH := clang
+BIT_PACK_LIB_PATH  := ar
+BIT_PACK_LINK_PATH := link
 
 CFLAGS             += -w
 DFLAGS             +=  $(patsubst %,-D%,$(filter BIT_%,$(MAKEFLAGS))) 
@@ -98,7 +102,7 @@ clobber: clean
 #   version
 #
 version: $(DEPS_1)
-	@echo NN 0.8.1-0
+	@echo 0.8.1-0
 
 #
 #   stop
@@ -108,8 +112,6 @@ stop: $(DEPS_2)
 #
 #   installBinary
 #
-DEPS_3 += stop
-
 installBinary: $(DEPS_3)
 
 #

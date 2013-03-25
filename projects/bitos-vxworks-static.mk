@@ -1,11 +1,11 @@
 #
-#   bitos-vxworks-default.mk -- Makefile to build Bit O/S Layer for vxworks
+#   bitos-vxworks-static.mk -- Makefile to build Bit O/S Layer for vxworks
 #
 
 PRODUCT            := bitos
 VERSION            := 0.8.1
 BUILD_NUMBER       := 0
-PROFILE            := default
+PROFILE            := static
 ARCH               := $(shell uname -m | sed 's/i.86/x86/;s/x86_64/x64/;s/arm.*/arm/;s/mips.*/mips/')
 OS                 := vxworks
 CC                 := cc$(subst x86,pentium,$(ARCH))
@@ -82,13 +82,13 @@ prep:
 	@[ ! -x $(CONFIG)/bin ] && mkdir -p $(CONFIG)/bin; true
 	@[ ! -x $(CONFIG)/inc ] && mkdir -p $(CONFIG)/inc; true
 	@[ ! -x $(CONFIG)/obj ] && mkdir -p $(CONFIG)/obj; true
-	@[ ! -f $(CONFIG)/inc/bit.h ] && cp projects/bitos-vxworks-default-bit.h $(CONFIG)/inc/bit.h ; true
+	@[ ! -f $(CONFIG)/inc/bit.h ] && cp projects/bitos-vxworks-static-bit.h $(CONFIG)/inc/bit.h ; true
 	@[ ! -f $(CONFIG)/inc/bitos.h ] && cp src/bitos.h $(CONFIG)/inc/bitos.h ; true
 	@if ! diff $(CONFIG)/inc/bitos.h src/bitos.h >/dev/null ; then\
 		cp src/bitos.h $(CONFIG)/inc/bitos.h  ; \
 	fi; true
-	@if ! diff $(CONFIG)/inc/bit.h projects/bitos-vxworks-default-bit.h >/dev/null ; then\
-		cp projects/bitos-vxworks-default-bit.h $(CONFIG)/inc/bit.h  ; \
+	@if ! diff $(CONFIG)/inc/bit.h projects/bitos-vxworks-static-bit.h >/dev/null ; then\
+		cp projects/bitos-vxworks-static-bit.h $(CONFIG)/inc/bit.h  ; \
 	fi; true
 	@if [ -f "$(CONFIG)/.makeflags" ] ; then \
 		if [ "$(MAKEFLAGS)" != " ` cat $(CONFIG)/.makeflags`" ] ; then \

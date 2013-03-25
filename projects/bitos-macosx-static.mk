@@ -1,14 +1,14 @@
 #
-#   bitos-vxworks-default.mk -- Makefile to build Bit O/S Layer for vxworks
+#   bitos-macosx-static.mk -- Makefile to build Bit O/S Layer for macosx
 #
 
 PRODUCT            := bitos
 VERSION            := 0.8.1
 BUILD_NUMBER       := 0
-PROFILE            := default
+PROFILE            := static
 ARCH               := $(shell uname -m | sed 's/i.86/x86/;s/x86_64/x64/;s/arm.*/arm/;s/mips.*/mips/')
-OS                 := vxworks
-CC                 := cc$(subst x86,pentium,$(ARCH))
+OS                 := macosx
+CC                 := clang
 LD                 := link
 CONFIG             := $(OS)-$(ARCH)-$(PROFILE)
 LBIN               := $(CONFIG)/bin
@@ -18,21 +18,16 @@ ifeq ($(BIT_PACK_LIB),1)
     BIT_PACK_COMPILER := 1
 endif
 
-BIT_PACK_COMPILER_PATH := cc$(subst x86,pentium,$(ARCH))
+BIT_PACK_COMPILER_PATH := clang
 BIT_PACK_LIB_PATH  := ar
 BIT_PACK_LINK_PATH := link
-BIT_PACK_VXWORKS_PATH := $(WIND_BASE)
 
-export WIND_BASE := $(WIND_BASE)
-export WIND_HOME := $(WIND_BASE)/..
-export WIND_PLATFORM := $(WIND_PLATFORM)
-
-CFLAGS             += -fno-builtin -fno-defer-pop -fvolatile -w
-DFLAGS             += -D_REENTRANT -DVXWORKS -DRW_MULTI_THREAD -D_GNU_TOOL -DCPU=PENTIUM $(patsubst %,-D%,$(filter BIT_%,$(MAKEFLAGS))) 
-IFLAGS             += -I$(CONFIG)/inc -I$(WIND_BASE)/target/h -I$(WIND_BASE)/target/h/wrn/coreip
-LDFLAGS            += '-Wl,-r'
+CFLAGS             += -w
+DFLAGS             +=  $(patsubst %,-D%,$(filter BIT_%,$(MAKEFLAGS))) 
+IFLAGS             += -I$(CONFIG)/inc
+LDFLAGS            += '-Wl,-rpath,@executable_path/' '-Wl,-rpath,@loader_path/'
 LIBPATHS           += -L$(CONFIG)/bin
-LIBS               += 
+LIBS               += -lpthread -lm -ldl
 
 DEBUG              := debug
 CFLAGS-debug       := -g
@@ -45,23 +40,23 @@ CFLAGS             += $(CFLAGS-$(DEBUG))
 DFLAGS             += $(DFLAGS-$(DEBUG))
 LDFLAGS            += $(LDFLAGS-$(DEBUG))
 
-BIT_ROOT_PREFIX    := deploy
-BIT_BASE_PREFIX    := $(BIT_ROOT_PREFIX)
-BIT_DATA_PREFIX    := $(BIT_VAPP_PREFIX)
-BIT_STATE_PREFIX   := $(BIT_VAPP_PREFIX)
-BIT_BIN_PREFIX     := $(BIT_VAPP_PREFIX)
-BIT_INC_PREFIX     := $(BIT_VAPP_PREFIX)/inc
-BIT_LIB_PREFIX     := $(BIT_VAPP_PREFIX)
-BIT_MAN_PREFIX     := $(BIT_VAPP_PREFIX)
-BIT_SBIN_PREFIX    := $(BIT_VAPP_PREFIX)
-BIT_ETC_PREFIX     := $(BIT_VAPP_PREFIX)
-BIT_WEB_PREFIX     := $(BIT_VAPP_PREFIX)/web
-BIT_LOG_PREFIX     := $(BIT_VAPP_PREFIX)
-BIT_SPOOL_PREFIX   := $(BIT_VAPP_PREFIX)
-BIT_CACHE_PREFIX   := $(BIT_VAPP_PREFIX)
-BIT_APP_PREFIX     := $(BIT_BASE_PREFIX)
-BIT_VAPP_PREFIX    := $(BIT_APP_PREFIX)
-BIT_SRC_PREFIX     := $(BIT_ROOT_PREFIX)/usr/src/$(PRODUCT)-$(VERSION)
+BIT_ROOT_PREFIX    := 
+BIT_BASE_PREFIX    := $(BIT_ROOT_PREFIX)/usr/local
+BIT_DATA_PREFIX    := $(BIT_ROOT_PREFIX)/
+BIT_STATE_PREFIX   := $(BIT_ROOT_PREFIX)/var
+BIT_APP_PREFIX     := $(BIT_BASE_PREFIX)/lib/$(PRODUCT)
+BIT_VAPP_PREFIX    := $(BIT_APP_PREFIX)/$(VERSION)
+BIT_BIN_PREFIX     := $(BIT_ROOT_PREFIX)/usr/local/bin
+BIT_INC_PREFIX     := $(BIT_ROOT_PREFIX)/usr/local/include
+BIT_LIB_PREFIX     := $(BIT_ROOT_PREFIX)/usr/local/lib
+BIT_MAN_PREFIX     := $(BIT_ROOT_PREFIX)/usr/local/share/man
+BIT_SBIN_PREFIX    := $(BIT_ROOT_PREFIX)/usr/local/sbin
+BIT_ETC_PREFIX     := $(BIT_ROOT_PREFIX)/etc/$(PRODUCT)
+BIT_WEB_PREFIX     := $(BIT_ROOT_PREFIX)/var/www/$(PRODUCT)-default
+BIT_LOG_PREFIX     := $(BIT_ROOT_PREFIX)/var/log/$(PRODUCT)
+BIT_SPOOL_PREFIX   := $(BIT_ROOT_PREFIX)/var/spool/$(PRODUCT)
+BIT_CACHE_PREFIX   := $(BIT_ROOT_PREFIX)/var/spool/$(PRODUCT)/cache
+BIT_SRC_PREFIX     := $(BIT_ROOT_PREFIX)$(PRODUCT)-$(VERSION)
 
 
 
@@ -82,13 +77,13 @@ prep:
 	@[ ! -x $(CONFIG)/bin ] && mkdir -p $(CONFIG)/bin; true
 	@[ ! -x $(CONFIG)/inc ] && mkdir -p $(CONFIG)/inc; true
 	@[ ! -x $(CONFIG)/obj ] && mkdir -p $(CONFIG)/obj; true
-	@[ ! -f $(CONFIG)/inc/bit.h ] && cp projects/bitos-vxworks-default-bit.h $(CONFIG)/inc/bit.h ; true
+	@[ ! -f $(CONFIG)/inc/bit.h ] && cp projects/bitos-macosx-static-bit.h $(CONFIG)/inc/bit.h ; true
 	@[ ! -f $(CONFIG)/inc/bitos.h ] && cp src/bitos.h $(CONFIG)/inc/bitos.h ; true
 	@if ! diff $(CONFIG)/inc/bitos.h src/bitos.h >/dev/null ; then\
 		cp src/bitos.h $(CONFIG)/inc/bitos.h  ; \
 	fi; true
-	@if ! diff $(CONFIG)/inc/bit.h projects/bitos-vxworks-default-bit.h >/dev/null ; then\
-		cp projects/bitos-vxworks-default-bit.h $(CONFIG)/inc/bit.h  ; \
+	@if ! diff $(CONFIG)/inc/bit.h projects/bitos-macosx-static-bit.h >/dev/null ; then\
+		cp projects/bitos-macosx-static-bit.h $(CONFIG)/inc/bit.h  ; \
 	fi; true
 	@if [ -f "$(CONFIG)/.makeflags" ] ; then \
 		if [ "$(MAKEFLAGS)" != " ` cat $(CONFIG)/.makeflags`" ] ; then \

@@ -3,7 +3,7 @@
 #
 
 PRODUCT            := bitos
-VERSION            := 0.8.1
+VERSION            := 0.8.6
 BUILD_NUMBER       := 0
 PROFILE            := static
 ARCH               := $(shell echo $(WIND_HOST_TYPE) | sed 's/-.*//')
@@ -28,7 +28,7 @@ export WIND_HOME          := $(WIND_BASE)/..
 export PATH               := $(WIND_GNU_PATH)/$(WIND_HOST_TYPE)/bin:$(PATH)
 
 CFLAGS             += -fno-builtin -fno-defer-pop -fvolatile -w
-DFLAGS             += -D_REENTRANT -DVXWORKS -DRW_MULTI_THREAD -D_GNU_TOOL -DCPU=$(CPU) $(patsubst %,-D%,$(filter BIT_%,$(MAKEFLAGS))) 
+DFLAGS             += -DVXWORKS -DRW_MULTI_THREAD -D_GNU_TOOL -DCPU=PENTIUM $(patsubst %,-D%,$(filter BIT_%,$(MAKEFLAGS))) 
 IFLAGS             += -I$(CONFIG)/inc -I$(WIND_BASE)/target/h -I$(WIND_BASE)/target/h/wrn/coreip
 LDFLAGS            += '-Wl,-r'
 LIBPATHS           += -L$(CONFIG)/bin
@@ -111,7 +111,7 @@ clobber: clean
 #   version
 #
 version: $(DEPS_1)
-	@echo 0.8.1-0
+	@echo 0.8.6-0
 
 #
 #   stop

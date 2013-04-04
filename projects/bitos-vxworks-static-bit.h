@@ -23,10 +23,10 @@
     #define BIT_DISCOVER ""
 #endif
 #ifndef BIT_HAS_DOUBLE_BRACES
-    #define BIT_HAS_DOUBLE_BRACES 1
+    #define BIT_HAS_DOUBLE_BRACES 0
 #endif
 #ifndef BIT_HAS_DYN_LOAD
-    #define BIT_HAS_DYN_LOAD 1
+    #define BIT_HAS_DYN_LOAD 0
 #endif
 #ifndef BIT_HAS_LIB_EDIT
     #define BIT_HAS_LIB_EDIT 0
@@ -38,7 +38,7 @@
     #define BIT_HAS_MMU 1
 #endif
 #ifndef BIT_HAS_MTUNE
-    #define BIT_HAS_MTUNE 1
+    #define BIT_HAS_MTUNE 0
 #endif
 #ifndef BIT_HAS_PAM
     #define BIT_HAS_PAM 0
@@ -74,7 +74,7 @@
     #define BIT_TITLE "Bit O/S Layer"
 #endif
 #ifndef BIT_VERSION
-    #define BIT_VERSION "0.8.1"
+    #define BIT_VERSION "0.8.6"
 #endif
 #ifndef BIT_WARN64TO32
     #define BIT_WARN64TO32 0
@@ -133,7 +133,7 @@
     #define BIT_VAPP_PREFIX "deploy"
 #endif
 #ifndef BIT_SRC_PREFIX
-    #define BIT_SRC_PREFIX "/usr/src/bitos-0.8.1"
+    #define BIT_SRC_PREFIX "/usr/src/bitos-0.8.6"
 #endif
 
 /* Suffixes */
@@ -172,10 +172,10 @@
     #define BIT_MINOR_VERSION 8
 #endif
 #ifndef BIT_PATCH_VERSION
-    #define BIT_PATCH_VERSION 1
+    #define BIT_PATCH_VERSION 6
 #endif
 #ifndef BIT_VNUM
-    #define BIT_VNUM 01
+    #define BIT_VNUM 06
 #endif
 
 /* Packs */

@@ -3,7 +3,7 @@
 #
 
 PRODUCT            := bitos
-VERSION            := 0.8.1
+VERSION            := 0.8.6
 BUILD_NUMBER       := 0
 PROFILE            := default
 ARCH               := $(shell uname -m | sed 's/i.86/x86/;s/x86_64/x64/;s/arm.*/arm/;s/mips.*/mips/')
@@ -22,12 +22,12 @@ BIT_PACK_COMPILER_PATH    := gcc
 BIT_PACK_LIB_PATH         := ar
 BIT_PACK_LINK_PATH        := link
 
-CFLAGS             += -fPIC   -w
-DFLAGS             += -D_REENTRANT -DPIC  $(patsubst %,-D%,$(filter BIT_%,$(MAKEFLAGS))) 
+CFLAGS             += -fPIC  -w
+DFLAGS             += -D_REENTRANT -DPIC $(patsubst %,-D%,$(filter BIT_%,$(MAKEFLAGS))) 
 IFLAGS             += -I$(CONFIG)/inc
-LDFLAGS            += '-Wl,--enable-new-dtags' '-Wl,-rpath,$$ORIGIN/' '-rdynamic'
+LDFLAGS            += '-rdynamic' '-Wl,--enable-new-dtags' '-Wl,-rpath,$$ORIGIN/'
 LIBPATHS           += -L$(CONFIG)/bin
-LIBS               += -lpthread -lm -lrt -ldl
+LIBS               += -lrt -ldl -lpthread -lm
 
 DEBUG              := debug
 CFLAGS-debug       := -g
@@ -103,7 +103,7 @@ clobber: clean
 #   version
 #
 version: $(DEPS_1)
-	@echo 0.8.1-0
+	@echo 0.8.6-0
 
 #
 #   stop

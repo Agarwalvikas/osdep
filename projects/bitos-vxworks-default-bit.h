@@ -80,7 +80,7 @@
     #define BIT_TITLE "Bit O/S Layer"
 #endif
 #ifndef BIT_VERSION
-    #define BIT_VERSION "0.8.6"
+    #define BIT_VERSION "0.8.7"
 #endif
 #ifndef BIT_WARN64TO32
     #define BIT_WARN64TO32 0
@@ -139,7 +139,7 @@
     #define BIT_VAPP_PREFIX "deploy"
 #endif
 #ifndef BIT_SRC_PREFIX
-    #define BIT_SRC_PREFIX "/usr/src/bitos-0.8.6"
+    #define BIT_SRC_PREFIX "/usr/src/bitos-0.8.7"
 #endif
 
 /* Suffixes */
@@ -181,10 +181,10 @@
     #define BIT_MINOR_VERSION 8
 #endif
 #ifndef BIT_PATCH_VERSION
-    #define BIT_PATCH_VERSION 6
+    #define BIT_PATCH_VERSION 7
 #endif
 #ifndef BIT_VNUM
-    #define BIT_VNUM 06
+    #define BIT_VNUM 07
 #endif
 
 /* Packs */

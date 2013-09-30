@@ -3,7 +3,7 @@
 #
 
 PRODUCT            := bitos
-VERSION            := 0.8.6
+VERSION            := 0.8.7
 BUILD_NUMBER       := 0
 PROFILE            := default
 ARCH               := $(shell echo $(WIND_HOST_TYPE) | sed 's/-.*//')
@@ -107,7 +107,7 @@ clobber: clean
 #   version
 #
 version: $(DEPS_1)
-	@echo 0.8.6-0
+	@echo 0.8.7-0
 
 #
 #   stop

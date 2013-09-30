@@ -3,7 +3,7 @@
 #
 
 PRODUCT            := bitos
-VERSION            := 0.8.6
+VERSION            := 0.8.7
 BUILD_NUMBER       := 0
 PROFILE            := static
 ARCH               := $(shell uname -m | sed 's/i.86/x86/;s/x86_64/x64/;s/arm.*/arm/;s/mips.*/mips/')
@@ -100,7 +100,7 @@ clobber: clean
 #   version
 #
 version: $(DEPS_1)
-	@echo 0.8.6-0
+	@echo 0.8.7-0
 
 #
 #   stop

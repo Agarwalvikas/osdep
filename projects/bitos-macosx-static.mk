@@ -25,7 +25,7 @@ BIT_PACK_LINK_PATH        := link
 
 CFLAGS             += -O2  -w
 DFLAGS             +=  $(patsubst %,-D%,$(filter BIT_%,$(MAKEFLAGS))) 
-IFLAGS             += -I$(CONFIG)/inc
+IFLAGS             += "-I$(CONFIG)/inc"
 LDFLAGS            += '-Wl,-rpath,@executable_path/' '-Wl,-rpath,@loader_path/'
 LIBPATHS           += -L$(CONFIG)/bin
 LIBS               += -ldl -lpthread -lm

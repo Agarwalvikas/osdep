@@ -415,7 +415,7 @@
 #if LINUX
     #if defined(__NR_epoll_create) || defined(__NR_epoll_create1)
         #include    <sys/epoll.h>
-    #endif
+#endif
     #include    <sys/prctl.h>
     #if defined(__NR_eventfd)
         #include    <sys/eventfd.h>

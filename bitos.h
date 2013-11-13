@@ -292,7 +292,9 @@
     #define _GNU_SOURCE 1
     #if !BIT_64
         #define _LARGEFILE64_SOURCE 1
-        #define _FILE_OFFSET_BITS 64
+        #ifdef __USE_FILE_OFFSET64
+            #define _FILE_OFFSET_BITS 64
+        #endif
     #endif
 #endif
 
@@ -411,9 +413,11 @@
     #include    "sys/cygwin.h"
 #endif
 #if LINUX
-    #include    <sys/epoll.h>
+    #if defined(__NR_epoll_create) || defined(__NR_epoll_create1)
+        #include    <sys/epoll.h>
+    #endif
     #include    <sys/prctl.h>
-    #if defined(EFD_NONBLOCK)
+    #if defined(__NR_eventfd)
         #include    <sys/eventfd.h>
     #endif
     #if !__UCLIBC__

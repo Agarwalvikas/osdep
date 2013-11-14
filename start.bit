@@ -1,9 +1,0 @@
-/*
-    start.bit -- Startup Bit File for Bit O/S Layer
- */
-
-Bit.load({
-    platforms: [
-        "linux-x86-debug",
-    ],
-})

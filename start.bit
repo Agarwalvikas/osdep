@@ -4,6 +4,6 @@
 
 Bit.load({
     platforms: [
-        "macosx-x64-debug",
+        "linux-x86-debug",
     ],
 })

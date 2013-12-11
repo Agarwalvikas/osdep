@@ -77,7 +77,7 @@
     #define BIT_SYNC ""
 #endif
 #ifndef BIT_TITLE
-    #define BIT_TITLE "Embedthis Bit O/S Layer"
+    #define BIT_TITLE "Bit O/S Layer"
 #endif
 #ifndef BIT_VERSION
     #define BIT_VERSION "0.8.7"

@@ -1,5 +1,5 @@
 #
-#   bitos-freebsd-default.mk -- Makefile to build Embedthis Bit O/S Layer for freebsd
+#   bitos-freebsd-default.mk -- Makefile to build Bit O/S Layer for freebsd
 #
 
 PRODUCT            := bitos

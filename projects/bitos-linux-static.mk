@@ -1,5 +1,5 @@
 #
-#   bitos-linux-static.mk -- Makefile to build Embedthis Bit O/S Layer for linux
+#   bitos-linux-static.mk -- Makefile to build Bit O/S Layer for linux
 #
 
 PRODUCT            := bitos

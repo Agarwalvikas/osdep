@@ -100,7 +100,7 @@ clobber: clean
 #   version
 #
 version: $(DEPS_1)
-	@echo 0.8.7-0
+	echo 0.8.7-0
 
 #
 #   stop

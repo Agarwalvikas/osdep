@@ -11,7 +11,7 @@
     #define BIT_BUILD_NUMBER "0"
 #endif
 #ifndef BIT_COMPANY
-    #define BIT_COMPANY "Embedthis"
+    #define BIT_COMPANY "Embedthis Software"
 #endif
 #ifndef BIT_DEBUG
     #define BIT_DEBUG 1
@@ -77,7 +77,7 @@
     #define BIT_SYNC ""
 #endif
 #ifndef BIT_TITLE
-    #define BIT_TITLE "Bit O/S Layer"
+    #define BIT_TITLE "Embedthis Bit O/S Layer"
 #endif
 #ifndef BIT_VERSION
     #define BIT_VERSION "0.8.7"

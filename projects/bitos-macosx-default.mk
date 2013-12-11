@@ -1,5 +1,5 @@
 #
-#   bitos-macosx-default.mk -- Makefile to build Bit O/S Layer for macosx
+#   bitos-macosx-default.mk -- Makefile to build Embedthis Bit O/S Layer for macosx
 #
 
 PRODUCT            := bitos

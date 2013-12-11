@@ -1,5 +1,5 @@
 #
-#   bitos-vxworks-default.mk -- Makefile to build Bit O/S Layer for vxworks
+#   bitos-vxworks-default.mk -- Makefile to build Embedthis Bit O/S Layer for vxworks
 #
 
 PRODUCT            := bitos

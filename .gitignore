@@ -17,6 +17,7 @@
 *.app
 *-debug
 *-release
+*-default
 *-*.bit
 releases
 start.bit

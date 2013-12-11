@@ -1,4 +1,4 @@
-LICENSE.md - Embedthis BitOS Licenses
+Embedthis BitOS Licenses
 ===
 
 This file documents the Embedthis Software Licenses. It includes the Embedthis BitOS Open Source License and licenses for third-party components within BitOS.

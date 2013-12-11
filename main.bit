@@ -7,11 +7,6 @@ Bit.load({
         "${BITS}/embedthis.bit",
     ],
     settings: {
-		product: 'bitos',
-		title: 'Bit O/S Layer',
-        company: 'Embedthis',
-		version: '0.8.7',
-		buildNumber: '0',
         prefixes: 'embedthis-prefixes',
         sync: [],
     },

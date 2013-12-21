@@ -2,12 +2,11 @@
     "name": "bitos",
     "description": "Embedthis Bit O/S Layer",
     "title": "Bit O/S Layer",
-    "version": "0.8.7",
+    "version": "0.8.8",
     "keywords": [
         "bit",
         "bitos"
     ],
-    "homepage": "https://github.com/embedthis/bitos.git",
     "author": {
         "name": "Embedthis Software",
         "email": "dev@embedthis.com",
@@ -18,31 +17,13 @@
         "url": "https://github.com/embedthis/bitos.git",
     },
     "bugs": {
-        "email": "dev@embedthis.com",
         "url": "http://github.com/embedthis/bitos/issues"
     },
-    "dependencies": {},
-    "devDependencies": {
-        "bit": ">0.9.0"
-    },
-    "files": [
-        "LICENSE.md",
-        "Makefile",
-        "README.md",
-        "configure",
-        "package.json",
-        "bitos.h"
+    "export": [
+        "src/bitos.h",
     ],
-    "ignore": [
-        "**/.*",
-        "node_modules",
-        "bower_components",
-        "doc",
-        "test",
-        "releases",
-        "package",
-        "*-debug*",
-        "*-release*"
+    "files": [
+        "src/bitos.h",
     ],
     "licenses": [ { 
         "type": "GPL", 

@@ -22,9 +22,6 @@
     "export": [
         "src/bitos.h",
     ],
-    "files": [
-        "src/bitos.h",
-    ],
     "licenses": [ { 
         "type": "GPL", 
         "url": "http://www.gnu.org/licenses/gpl-2.0.html"

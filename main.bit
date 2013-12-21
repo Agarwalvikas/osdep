@@ -23,24 +23,12 @@ Bit.load({
                 formats:    [ 'tar' ],
                 sets:       [ 'pak' ],
             },
-            combo: {
-                inherit:    'embedthis-manifest',
-                prefixes:   [ 'src'],
-                formats:    [ 'tar' ],
-                sets:       [ 'source' ],
-            },
-            flat: {
-                inherit:    'embedthis-manifest',
-                prefixes:   [ 'src'],
-                formats:    [ 'tar' ],
-                sets:       [ 'source' ],
-            },
         },
         files: [ 
             {   
                 from:       [ 'src/bitos.h' ],
                 to:         '${src}/src/',
-                sets:       [ 'pak', 'source' ],
+                set:        'pak',
             },
         ],
     },

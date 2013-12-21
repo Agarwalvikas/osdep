@@ -3,7 +3,7 @@
 #
 
 PRODUCT            := bitos
-VERSION            := 0.8.7
+VERSION            := 0.8.8
 BUILD_NUMBER       := 0
 PROFILE            := default
 ARCH               := $(shell uname -m | sed 's/i.86/x86/;s/x86_64/x64/;s/arm.*/arm/;s/mips.*/mips/')
@@ -78,6 +78,10 @@ prep:
 	@[ ! -x $(CONFIG)/bin ] && mkdir -p $(CONFIG)/bin; true
 	@[ ! -x $(CONFIG)/inc ] && mkdir -p $(CONFIG)/inc; true
 	@[ ! -x $(CONFIG)/obj ] && mkdir -p $(CONFIG)/obj; true
+	@[ ! -f $(CONFIG)/inc/bitos.h ] && cp src/bitos.h $(CONFIG)/inc/bitos.h ; true
+	@if ! diff $(CONFIG)/inc/bitos.h src/bitos.h >/dev/null ; then\
+		cp src/bitos.h $(CONFIG)/inc/bitos.h  ; \
+	fi; true
 	@[ ! -f $(CONFIG)/inc/bit.h ] && cp projects/bitos-freebsd-default-bit.h $(CONFIG)/inc/bit.h ; true
 	@if ! diff $(CONFIG)/inc/bit.h projects/bitos-freebsd-default-bit.h >/dev/null ; then\
 		cp projects/bitos-freebsd-default-bit.h $(CONFIG)/inc/bit.h  ; \
@@ -100,7 +104,7 @@ clobber: clean
 #   version
 #
 version: $(DEPS_1)
-	echo 0.8.7-0
+	echo 0.8.8-0
 
 #
 #   stop

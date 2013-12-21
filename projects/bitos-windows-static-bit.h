@@ -74,7 +74,7 @@
     #define BIT_TITLE "Bit O/S Layer"
 #endif
 #ifndef BIT_VERSION
-    #define BIT_VERSION "0.8.7"
+    #define BIT_VERSION "0.8.8"
 #endif
 
 /* Prefixes */
@@ -172,10 +172,10 @@
     #define BIT_MINOR_VERSION 8
 #endif
 #ifndef BIT_PATCH_VERSION
-    #define BIT_PATCH_VERSION 7
+    #define BIT_PATCH_VERSION 8
 #endif
 #ifndef BIT_VNUM
-    #define BIT_VNUM 07
+    #define BIT_VNUM 08
 #endif
 
 /* Packs */

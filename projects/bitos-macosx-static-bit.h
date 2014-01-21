@@ -8,7 +8,7 @@
 
 /* Settings */
 #ifndef BIT_BUILD_NUMBER
-    #define BIT_BUILD_NUMBER "0"
+    #define BIT_BUILD_NUMBER 0
 #endif
 #ifndef BIT_COMPANY
     #define BIT_COMPANY "Embedthis Software"

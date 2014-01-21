@@ -4,7 +4,6 @@
 
 PRODUCT            = bitos
 VERSION            = 0.8.8
-BUILD_NUMBER       = 0
 PROFILE            = default
 PA                 = $(PROCESSOR_ARCHITECTURE)
 
@@ -95,7 +94,7 @@ clean:
 #   version
 #
 version: $(DEPS_1)
-	echo 0.8.8-0
+	echo 0.8.8
 
 #
 #   stop

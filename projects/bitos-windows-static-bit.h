@@ -79,6 +79,9 @@
 #ifndef BIT_VERSION
     #define BIT_VERSION "0.8.8"
 #endif
+#ifndef BIT_WHO
+    #define BIT_WHO "embedthis"
+#endif
 
 /* Prefixes */
 #ifndef BIT_ROOT_PREFIX

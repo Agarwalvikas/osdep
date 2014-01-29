@@ -7,11 +7,14 @@
 
 
 /* Settings */
+#ifndef BIT_AUTHOR
+    #define BIT_AUTHOR "Embedthis Software"
+#endif
 #ifndef BIT_BUILD_NUMBER
     #define BIT_BUILD_NUMBER 0
 #endif
 #ifndef BIT_COMPANY
-    #define BIT_COMPANY "Embedthis Software"
+    #define BIT_COMPANY "embedthis"
 #endif
 #ifndef BIT_COMPATIBLE
     #define BIT_COMPATIBLE "0.8.8"
@@ -21,6 +24,9 @@
 #endif
 #ifndef BIT_DEPTH
     #define BIT_DEPTH 1
+#endif
+#ifndef BIT_DESCRIPTION
+    #define BIT_DESCRIPTION "Embedthis Bit O/S Layer"
 #endif
 #ifndef BIT_DISCOVER
     #define BIT_DISCOVER ""
@@ -67,6 +73,9 @@
 #ifndef BIT_HAS_UNNAMED_UNIONS
     #define BIT_HAS_UNNAMED_UNIONS 1
 #endif
+#ifndef BIT_NAME
+    #define BIT_NAME "bitos"
+#endif
 #ifndef BIT_PREFIXES
     #define BIT_PREFIXES "embedthis-prefixes"
 #endif
@@ -93,9 +102,6 @@
 #endif
 #ifndef BIT_WARN_UNUSED
     #define BIT_WARN_UNUSED 1
-#endif
-#ifndef BIT_WHO
-    #define BIT_WHO "embedthis"
 #endif
 
 /* Prefixes */

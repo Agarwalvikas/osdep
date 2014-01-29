@@ -93,7 +93,7 @@ fi";
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0430;
-				ORGANIZATIONNAME = "Embedthis Software";
+				ORGANIZATIONNAME = "embedthis";
 			};
 			buildConfigurationList = FEED635CFEEDD3C800000002 /* Build configuration list for PBXProject "bitos" */;
 			compatibilityVersion = "Xcode 3.2";

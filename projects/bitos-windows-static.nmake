@@ -3,7 +3,7 @@
 #
 
 PRODUCT            = bitos
-VERSION            = 0.8.8
+VERSION            = 0.8.9
 PROFILE            = static
 PA                 = $(PROCESSOR_ARCHITECTURE)
 
@@ -94,7 +94,7 @@ clean:
 #   version
 #
 version: $(DEPS_1)
-	echo 0.8.8
+	echo 0.8.9
 
 #
 #   stop

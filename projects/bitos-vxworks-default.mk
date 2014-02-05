@@ -3,7 +3,7 @@
 #
 
 PRODUCT            := bitos
-VERSION            := 0.8.8
+VERSION            := 0.8.9
 PROFILE            := default
 ARCH               := $(shell echo $(WIND_HOST_TYPE) | sed 's/-.*//')
 CPU                := $(subst X86,PENTIUM,$(shell echo $(ARCH) | tr a-z A-Z))
@@ -110,7 +110,7 @@ clobber: clean
 #   version
 #
 version: $(DEPS_1)
-	echo 0.8.8
+	echo 0.8.9
 
 #
 #   stop

@@ -1,0 +1,133 @@
+#
+#   osdep-windows-static.nmake -- Makefile to build Embedthis O/S Dependent Layer for windows
+#
+
+NAME                  = osdep
+VERSION               = 0.8.0
+
+OS                    = windows
+PA                    = $(PROCESSOR_ARCHITECTURE)
+!IF "$(PROFILE)" == ""
+PROFILE               = static
+!ENDIF
+
+
+!IF "$(PA)" == "AMD64"
+ARCH                  = x64
+ENTRY                 = _DllMainCRTStartup
+!ELSE
+ARCH                  = x86
+ENTRY                 = _DllMainCRTStartup@12
+!ENDIF
+
+!IF "$(CONFIG)" == ""
+CONFIG                = $(OS)-$(ARCH)-$(PROFILE)
+!ENDIF
+
+LBIN                  = $(CONFIG)\bin
+
+
+ME_EXT_COMPILER_PATH  = cl
+ME_EXT_LIB_PATH       = lib.exe
+ME_EXT_LINK_PATH      = link
+ME_EXT_RC_PATH        = rc
+ME_EXT_VXWORKS_PATH   = $(WIND_BASE)
+ME_EXT_WINSDK_PATH    = winsdk
+
+CC                    = cl
+LD                    = link
+RC                    = rc
+CFLAGS                = -nologo -GR- -W3  -MD
+DFLAGS                = -D_REENTRANT -D_MT 
+IFLAGS                = -I$(CONFIG)\inc
+LDFLAGS               = -nologo -nodefaultlib -incremental:no -machine:$(ARCH)
+LIBPATHS              = "-libpath:$(CONFIG)\bin"
+LIBS                  = ws2_32.lib advapi32.lib user32.lib kernel32.lib oldnames.lib msvcrt.lib shell32.lib
+
+ME_ROOT_PREFIX        = C:
+ME_BASE_PREFIX        = $(ME_ROOT_PREFIX)\Program Files
+ME_APP_PREFIX         = $(ME_BASE_PREFIX)\Embedthis O\S Dependent Layer
+ME_VAPP_PREFIX        = $(ME_APP_PREFIX)
+ME_DATA_PREFIX        = $(ME_VAPP_PREFIX)
+ME_STATE_PREFIX       = $(ME_VAPP_PREFIX)
+ME_BIN_PREFIX         = $(ME_VAPP_PREFIX)\bin
+ME_INC_PREFIX         = $(ME_VAPP_PREFIX)\inc
+ME_LIB_PREFIX         = $(ME_VAPP_PREFIX)\lib
+ME_MAN_PREFIX         = $(ME_VAPP_PREFIX)\man
+ME_ETC_PREFIX         = $(ME_VAPP_PREFIX)
+ME_WEB_PREFIX         = $(ME_VAPP_PREFIX)\web
+ME_LOG_PREFIX         = $(ME_VAPP_PREFIX)\log
+ME_SPOOL_PREFIX       = $(ME_VAPP_PREFIX)\tmp
+ME_CACHE_PREFIX       = $(ME_VAPP_PREFIX)\cache
+ME_SRC_PREFIX         = $(ME_VAPP_PREFIX)\src
+
+
+
+!IFNDEF SHOW
+.SILENT:
+!ENDIF
+
+all build compile: prep $(TARGETS)
+
+.PHONY: prep
+
+prep:
+!IF "$(VSINSTALLDIR)" == ""
+	echo "Visual Studio vars not set. Run vcvars.bat."
+	exit 255
+!ENDIF
+!IF "$(ME_APP_PREFIX)" == ""
+	echo "ME_APP_PREFIX not set."
+	exit 255
+!ENDIF
+	@if not exist $(CONFIG)\bin md $(CONFIG)\bin
+	@if not exist $(CONFIG)\inc md $(CONFIG)\inc
+	@if not exist $(CONFIG)\obj md $(CONFIG)\obj
+	@if not exist $(CONFIG)\inc\me.h copy projects\osdep-windows-static-me.h $(CONFIG)\inc\me.h
+
+clean:
+
+
+
+#
+#   version
+#
+version: $(DEPS_1)
+	echo 0.8.0
+
+#
+#   stop
+#
+stop: $(DEPS_2)
+#  Omit build script stop
+
+#
+#   installBinary
+#
+installBinary: $(DEPS_3)
+#  Omit build script installBinary
+
+#
+#   start
+#
+start: $(DEPS_4)
+#  Omit build script start
+
+#
+#   install
+#
+DEPS_5 = $(DEPS_5) stop
+DEPS_5 = $(DEPS_5) installBinary
+DEPS_5 = $(DEPS_5) start
+
+install: $(DEPS_5)
+#  Omit build script install
+
+#
+#   uninstall
+#
+DEPS_6 = $(DEPS_6) stop
+
+uninstall: $(DEPS_6)
+#  Omit build script uninstall
+

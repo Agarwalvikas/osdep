@@ -1,10 +1,14 @@
 {
-    "name": "osdep",
-    "description": "Embedthis O/S Dependent Layer",
+    "name": "me-doc",
+    "description": "Documentation Targets",
     "version": "0.8.0",
+    "dirs": {
+        "paks": "src/paks"
+    },
+    "dependencies": {
+    },
     "keywords": [
-        "osdep",
-        "makeme"
+        "me-plugin",
     ],
     "author": {
         "name": "Embedthis Software",
@@ -13,14 +17,11 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/embedthis/osdep.git"
+        "url": "git://github.com/embedthis/me-doc.git"
     },
     "bugs": {
-        "url": "http://github.com/embedthis/osdep/issues"
+        "url": "http://github.com/embedthis/me-doc/issues"
     },
-    "export": [
-        "src/osdep.h"
-    ],
     "licenses": [
         {
             "type": "GPL",
@@ -30,13 +31,5 @@
             "type": "Commercial",
             "url": "http://embedthis.com/licensing/"
         }
-    ],
-    "dirs": {
-        "paks": "src/paks"
-    },
-    "dependencies": {
-        "me-dev": "~0.8",
-        "me-doc": "~0.8",
-        "me-package": "~0.8"
-    }
+    ]
 }

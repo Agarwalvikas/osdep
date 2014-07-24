@@ -1,0 +1,43 @@
+/*
+    main.me -- Main MakeMe File for Osdep
+ */
+
+Me.load({
+    blend: [
+        "doc/doc.me",
+        "src/paks/*/*.me",
+    ],
+    settings: {
+        prefixes: 'package-prefixes',
+    },
+
+    targets: {
+        package: {
+            depends: ['packagePak'],
+        },
+
+        packageSource: { },
+    },
+
+    manifest: {
+        packages: {
+            pak: {
+                inherit:    'package-manifest',
+                prefixes:   [ 'src'],
+                formats:    [ 'tar' ],
+                sets:       [ 'pak' ],
+            },
+        },
+        files: [ 
+            {   
+                from:       [ 'osdep.h' ],
+                to:         '${src}',
+                set:        'pak',
+            },{
+                from:       'osdep.me',
+                to:         '${src}/osdep.me',
+                set:        'pak',
+            }
+        ],
+    },
+})

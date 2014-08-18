@@ -9,10 +9,5 @@ Me.load({
                 apidoc('api/osdep.dox', '${SRC}/osdep.h', 'OSDEP', 'api/*.tags')
             `,
         }, 
-
-        'clean-doc': {
-            type: 'clean',
-            action: `rmdir(['../doc/api/html', '../doc/api/xml'])`
-        },
     },
 })

@@ -44,9 +44,11 @@
         "osdep.me",
         "doc/api/osdep.dtags",
         "doc/api/osdepBare.tags",
-        "doc/api/osdepBare.html",
+        "doc/api/osdepBare.html"
     ],
     "ignore": [
         "start.me"
     ],
+    "dependencies": {
+    }
 }

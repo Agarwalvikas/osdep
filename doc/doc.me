@@ -5,17 +5,16 @@
 Me.load({
     targets: {
         api: {
-            action: "
+            action: `
                 apidoc('api/osdep.dox', '${SRC}/osdep.h', 'OSDEP', 'api/*.tags')
-                apiwrap('api/osdep.html')
-            ",
+            `,
         }, 
 
         'clean-doc': {
             type: 'clean',
-            action: "
+            action: `
                 rmdir(['../doc/api/html', '../doc/api/xml'])
-            "
+            `
         },
     },
 })

@@ -21,7 +21,6 @@ public function apidoc(dox: Path, headers, title: String, tags) {
     tags = Path('.').files(tags)
 
     let doxtmp = Path('').temp().replaceExt('dox')
-print("HHH", headers)
     let data = api.join(name + '.dox').readString().replace(/^INPUT .*=.*$/m, 'INPUT = ' + headers)
     Path(doxtmp).write(data)
     trace('Generate', name.toPascal() + ' documentation')
@@ -47,10 +46,15 @@ print("HHH", headers)
 
 
 public function apiwrap(patterns) {
-    for each (dfile in Path('.').files(patterns)) {
-        let name = dfile.name.replace('.html', '')
+    let files = Path('.').files(patterns)
+    if (files.length == 0) {
+        files = [Path(patterns)]
+    }
+    for each (dfile in files) {
+        let name = dfile.replace('.html', '')
         let data = Path(name + 'Bare.html').readString()
-        let contents = Path(name + 'Header.tem').readString() + data + Path(name).dirname.join('apiFooter.tem').readString() + '\n'
+        let contents = Path(name + 'Header.tem').readString() + data + 
+            Path(name).dirname.join('apiFooter.tem').readString() + '\n'
         dfile.joinExt('html').write(contents)
     }
 }

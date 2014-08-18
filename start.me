@@ -17,6 +17,10 @@ Me.load({
         },
 
         packageSource: { },
+
+        sync: {
+            action: `sh('pak -f upgrade')`,
+        },
     },
 
     manifest: {
@@ -41,8 +45,4 @@ Me.load({
         ],
     },
 
-    sync: {
-        home: '${TOP}',
-        action: `sh('pak -f upgrade')`,
-    },
 })

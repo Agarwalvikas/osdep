@@ -20,7 +20,7 @@ public function apidoc(dox: Path, headers, title: String, tags) {
     rmdir([api.join('html'), api.join('xml')])
     tags = Path('.').files(tags)
 
-    let doxtmp = Path('').temp().replaceExt('dox')
+    let doxtmp = Path('').temp()
     let data = api.join(name + '.dox').readString().replace(/^INPUT .*=.*$/m, 'INPUT = ' + headers)
     Path(doxtmp).write(data)
     trace('Generate', name.toPascal() + ' documentation')
@@ -45,26 +45,10 @@ public function apidoc(dox: Path, headers, title: String, tags) {
 }
 
 
-/* UNUSED
-public function apiwrap(patterns) {
-    let files = Path('.').files(patterns)
-    if (files.length == 0) {
-        files = [Path(patterns)]
-    }
-    for each (dfile in files) {
-        let name = dfile.replace('.html', '')
-        let data = Path(name + 'Bare.html').readString()
-        let contents = Path(name + 'Header.tem').readString() + data + 
-            Path(name).dirname.join('apiFooter.tem').readString() + '\n'
-        dfile.joinExt('html').write(contents)
-    }
-}
-*/
-
 public function apiLayout(from: Path, to: Path)
 {
     trace('Generate', to)
-    let contents = from.readString().replace(/\\$/mg, '$$$$')
+    let contents = from.readString().replace(/\$/mg, '$$$$')
     let data = to.readString()
     to.write(data.
         replace(/DOC_CONTENT/g, contents).

@@ -1,0 +1,60 @@
+/*
+    main.me -- Main MakeMe File for Osdep
+ */
+
+Me.load({
+    blend: [
+        "doc/doc.me",
+        "src/paks/*/*.me",
+    ],
+    dir: {
+        bld: "build",
+    },
+    settings: {
+        prefixes: 'package-prefixes',
+    },
+
+    targets: {
+        package: {
+            depends: ['packagePak'],
+        },
+
+        packageSource: { },
+
+        sync: {
+            action: `sh('pak -f upgrade')`,
+        },
+    },
+
+    manifest: {
+        packages: {
+            pak: {
+                inherit:    'package-manifest',
+                prefixes:   [ 'src'],
+                formats:    [ 'tar' ],
+                sets:       [ 'pak' ],
+            },
+        },
+        sets: { 
+            pak: [
+                {   
+                    from:       [ 'osdep.h' ],
+                    to:         '${src}',
+
+                }, {
+                    from:       'osdep.me',
+                    to:         '${src}/osdep.me',
+
+                }, {
+                    from:       [
+                                    'doc/api/osdep.html', 
+                                    'doc/api/osdep.tags', 
+                                    'doc/api/osdep.dtags'
+                    ],
+                    to:         '${src}/doc/api/',
+                    relative:   'doc/api',
+                }
+            ]
+        }
+    }
+})

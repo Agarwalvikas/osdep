@@ -1,50 +1,10 @@
 /*
-    main.me -- Main MakeMe File for Osdep
+    start.me -- MakeMe Startup File
  */
 
 Me.load({
-    blend: [
-        "doc/doc.me",
-        "src/paks/*/*.me",
+    platforms: [
+        "macosx-x64-debug",
     ],
-    dir: {
-        bld: "build",
-    },
-    settings: {
-        prefixes: 'package-prefixes',
-    },
-
-    targets: {
-        package: {
-            depends: ['packagePak'],
-        },
-
-        packageSource: { },
-
-        sync: {
-            action: `sh('pak -f upgrade')`,
-        },
-    },
-
-    manifest: {
-        packages: {
-            pak: {
-                inherit:    'package-manifest',
-                prefixes:   [ 'src'],
-                formats:    [ 'tar' ],
-                sets:       [ 'pak' ],
-            },
-        },
-        files: [ 
-            {   
-                from:       [ 'osdep.h' ],
-                to:         '${src}',
-                set:        'pak',
-            },{
-                from:       'osdep.me',
-                to:         '${src}/osdep.me',
-                set:        'pak',
-            }
-        ]
-    }
+    configure: "me configure",
 })

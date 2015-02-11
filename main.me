@@ -36,17 +36,17 @@ Me.load({
             pak: [
                 {   
                     from:       [ 'osdep.h' ],
-                    to:         '${src}',
+                    to:         '${src}/dist/',
 
                 }, {
                     from:       'osdep.me',
-                    to:         '${src}/osdep.me',
+                    to:         '${src}/dist/osdep.me',
 
                 }, {
                     from:       [
-                                    'doc/api/osdep.html', 
-                                    'doc/api/osdep.tags', 
-                                    'doc/api/osdep.dtags'
+                                'doc/api/osdep.html', 
+                                'doc/api/osdep.tags', 
+                                'doc/api/osdep.dtags'
                     ],
                     to:         '${src}/doc/api/',
                     relative:   'doc/api',

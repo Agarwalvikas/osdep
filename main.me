@@ -8,7 +8,7 @@ Me.load({
     blend: [ "doc/doc.me" ],
 
     settings: {
-        prefixes: 'package-prefixes',
+        prefixes: 'install-prefixes',
     },
 
     targets: {
@@ -27,7 +27,7 @@ Me.load({
         packages: {
             pak: {
                 inherit:    'package-manifest',
-                prefixes:   [ 'src'],
+                prefixes:   [ 'src' ],
                 formats:    [ 'tar' ],
                 sets:       [ 'pak' ],
             },

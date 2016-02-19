@@ -833,7 +833,7 @@ GENERATE_DOCSET        = NO
 # documentation sets from a single provider (such as a company or product suite) 
 # can be grouped.
 
-DOCSET_FEEDNAME        = "Embedthis generated docs"
+DOCSET_FEEDNAME        = "Generated Docs"
 
 # When GENERATE_DOCSET tag is set to YES, this tag specifies a string that 
 # should uniquely identify the documentation set bundle. This should be a 

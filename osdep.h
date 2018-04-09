@@ -1257,8 +1257,8 @@ extern "C" {
 #endif
 
 #if LINUX
-    extern int pthread_mutexattr_gettype (__const pthread_mutexattr_t *__restrict __attr, int *__restrict __kind) __THROW;
-    extern int pthread_mutexattr_settype (pthread_mutexattr_t *__attr, int __kind) __THROW;
+    extern int pthread_mutexattr_gettype (__const pthread_mutexattr_t *__restrict __attr, int *__restrict __kind);
+    extern int pthread_mutexattr_settype (pthread_mutexattr_t *__attr, int __kind);
     extern char **environ;
 #endif
 

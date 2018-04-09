@@ -401,7 +401,6 @@
 #if ME_UNIX_LIKE
     #include    <sys/ioctl.h>
     #include    <sys/mman.h>
-    #include    <sys/poll.h>
     #include    <sys/resource.h>
     #include    <sys/select.h>
     #include    <sys/time.h>
@@ -409,6 +408,7 @@
     #include    <sys/utsname.h>
     #include    <sys/uio.h>
     #include    <sys/wait.h>
+    #include    <poll.h>
     #include    <unistd.h>
 #endif
     #include    <time.h>
